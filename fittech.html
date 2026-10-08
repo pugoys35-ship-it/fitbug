@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="hidden lg:block md:hidden">
+            <nav
+                class="flex justify-between gap-7  0 items-center px-8 py-3 fixed w-full bg-white z-10 backdrop-blur border-b border-[#64748B]">
+                <div class="flex gap-3 items-center">
+                    <div v-if="firstside" class="">
+                        <i @click="showsidebar()" class="fa-solid fa-bars text-[26px] cursor-pointer "></i>
+                    </div>
+                    <div v-if="secondside" class="">
+                        <i @click="closeSidebar()" class="fa-regular fa-circle-xmark text-[26px] cursor-pointer"></i>
+                    </div>
+                    <h1 class="text-[26px] font-[650]">FIT<span class="text-[#9333EA]">BUG</span></h1>
+                </div>
+                <div class="flex px-5 py-3 bg-gray-100 rounded-full ml-5">
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Platform <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Solutions <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Deployment <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Resources <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        About</i></p>
+                </div>
+                <button
+                    class="cursor-pointer hover:saturate-120 px-7 py-4 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                    access <i class="fa-solid fa-arrow-up-right-dots"></i></button>
+            </nav>
+
+            <div class="h-20"></div>
+            <!-- Sidebar -->
+            <div v-if="side">
+                <nav
+                    class="fixed z-999 flex flex-col w-25 h-screen px-6 gap-28   items-center py-10 text-center bg-white  border-r border-[#64748B] ">
+                    <a href="#whyfitbug"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-circle-question text-xl"></i></a>
+                    <a href="#connected"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-users text-2xl"></i></a>
+                    <a href="#whoitsfor"> <i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-person-circle-question text-2xl"></i></a>
+                    <a href="#founder"> <i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-user-large text-2xl"></i></a>
+                    <a href="#access"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-address-book text-2xl"></i></a>
+                </nav>
+
+            </div>
+
+
+            <!-- Hero -->
+            <section
+                class="h-125 w-full bg-linear-to-t from-white via-gray-100 to-gray-200 flex justify-center items-center">
+                <div class="flex flex-col items-center">
+                    <h1 class="text-[10px] text-[#9333EA] font-[700]">THE CONNECTED FITNESS ECOSYSTEM</h1>
+                    <h1 class="text-[51.16px] font-bold text-center antialiased ">One platform for modern <br> fitness
+                        coaching.
+                    </h1>
+                    <p class="text-[17px] text-[#64748B] font-semibold text-center mt-5"> FITBUG is being built to bring
+                        training, nutrition, client relationships, communication, and <br> progress into a more
+                        connected
+                        coaching experience.</p>
+                    <div class="px-7 rounded-full py-2 bg-gray-200 flex gap-3 items-center mt-7">
+                        <div class=" w-3 h-3 animate-pulse rounded-full bg-[#9333EA]"></div>
+                        <p class="text-[#9333EA] text-[10px] font-[700]"> PLATFORM IN DEVELOPMENT</p>
+                    </div>
+                </div>
+            </section>
+            <section class="w-full h-fit py-60 bg-gray-100/80">
+                <div class="flex flex-col justify-center items-center ">
+                    <div>
+                        <h1 id="whyfitbug" class="text-[68px] font-bold antialiased "><span
+                                class="text-[10px] text-[#9333EA] font-[700]">WHY
+                                FITBUG</span><br> Fitness is powerul <br> The experience around it isn't</h1>
+                        <p class="text-[17px] text-[#64748B] font-semibold mt-5">Training, nutrition, progress, health
+                            data
+                            and
+                            communication are <br> often spread across disconnected tools and experience</p>
+                    </div>
+                    <div>
+                        <div class="grid grid-rows-2 grid-cols-2 gap-5 mt-10">
+                            <div
+                                class="h-[150.18px] w-[500px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Training plans live in separate tools</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One connected coaching experience</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[500px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Health & wearable data stay isolated</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Data that works together</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[500px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Progress is tracked in different places</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One continous view of progress</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[500px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Coaching and opertations happens elsewhere</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Everything connected around the journey</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5 mt-10">
+                        <div
+                            class="h-[148.19px] w-[244px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹162<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">India fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+
+                        <div
+                            class="h-[148.19px] w-[244px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹377<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2030 forecast</p>
+                        </div>
+
+                        <div
+                            class="h-[148.19px] w-[244px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">15<span
+                                    class="text-[0.6em] text-[#9333EA]">%</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected annual growth</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024-2030</p>
+                        </div>
+
+                        <div
+                            class="h-[148.19px] w-[244px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">12.3<span
+                                    class="text-[0.6em] text-[#9333EA]">M</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Fitness facility members</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <p class="text-[10px] font-bold text-[#64748B]">India commercial fitness facilities <span
+                                class="underline">Deloitte / HFA, 2025</span></p>
+                    </div>
+                    <div class="mt-50 flex flex-col text-center">
+                        <p class="text-[50px] italic font-medium text-center">"Fitness works better when <span
+                                class="text-[#9333EA]">everthing works <br> together.</span>"</p>
+                        <div>
+                            <p class="text-[16px] font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+                            <p class="text-[16px] font-semibold text-[#64748B]">The fitness bug whithin</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="w-full h-fit py-10 bg-linear-to-t from-white via-gray-100 to-gray-200 flex flex-col justify-center items-center">
+                <div class="text-center">
+                    <p id="connected" class="text-[10px] text-[#9333EA] font-[700]">CONNECTED</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Everything fitness, <br> connected.</h1>
+                    <p class="text-[18px] text-[#64748B] font-medium mt-5">Coaching, training, nutrition, progress,
+                        health
+                        data,
+                        <br> business and more - brought together in one connected <br> ecosystem.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="grid grid-rows-2 grid-cols-3 gap-5 mt-20">
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#facc15] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-regular fa-user text-2xl text-[#facc15]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Core</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Coaching & Clients</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Clients profiles, check-ins, feedbacks, plan <br>
+                                assignment and ongoing coach-client <br> management.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#60a5fa] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-dumbbell text-2xl text-[#60a5fa]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Training</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Training & Programming</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Workouts, excercise planning, schedules, <br>
+                                performance
+                                tracking and structured <br> progression.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#4ade80] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-utensils text-2xl text-[#4ade80]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Nutrition</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Nutrition</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Meal plans, calories, macros, food logging <br>
+                                and
+                                nutrition guidance as part of the same <br> journey. </p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#c084fc] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-arrow-up-right-dots text-2xl text-[#c084fc]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Progress</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Progress & Body</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Measurements, photos, body <br> composition,
+                                milestone
+                                and
+                                long-term <br> progress tracking.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#22d3ee] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-heart-pulse text-2xl text-[#22d3ee]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Data</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Health & Connected Data</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Wearable, reminders, notifications, <br> feedbacks
+                                loops
+                                and ongoing client <br> interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#f472b6] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-comments text-2xl text-[#f472b6]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Engagement</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Comminaction & Engagement</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Messaging, reminders, notifications, <br>
+                                feedbacks
+                                loops
+                                and ongoing client <br> interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#34d399] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-city text-2xl text-[#34d399]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Business</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Business & Operations</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Scheduling, subscriptions, staff, coaches, <br>
+                                client
+                                operations and workflows for <br> studios and gyms.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#818cf8] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-brain text-2xl text-[#818cf8]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Intelligence</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Intelligence & Automation</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Insights, recommendations, intellegent <br>
+                                guidance
+                                and
+                                automation powered by <br> connected data.</p>
+                        </div>
+
+                        <div
+                            class="h-[239.85px] w-[329.062px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#fb7185] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    </i><i class="fa-solid fa-network-wired text-2xl text-[#fb7185]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Ecosystem</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Marketplace & Ecosytem</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Discovery, collaborations, affiliates, <br>
+                                partners
+                                and
+                                future marketplace, <br> opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="whoitsfor" class="w-full h-fit py-20 bg-gray-100">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">WHO IT'S FOR</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built for every <br> side of fitness.
+                    </h1>
+                </div>
+
+                <div class="px-5 mt-30">
+                    <div class="grid grid-cols-4 grid-rows-2 gap-10">
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Keep training, nutrition, progress and <br>
+                                connected health data together.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#06b6d480] to-[#06b6d430] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-heart-pulse text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Enthusiast <br> <span
+                                        class="text-[12px] text-gray-500">Training - Health - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Plan nutrition, follow adherce and <br>
+                                connect
+                                it with the rest of the client <br> journey.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#8b5cf680] to-[#8b5cf630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-utensils text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Nutrition Coach <br> <span
+                                        class="text-[12px] text-gray-500">Nutrition - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Build programs, manage clients and <br>
+                                track
+                                progress from one connected <br> workplace.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#6366f180] to-[#6366f130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-dumbbell text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Personal Trainer <br> <span
+                                        class="text-[12px] text-gray-500">Coach - Training - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Bring coaches, clients and day-to-day <br>
+                                operations into one connected system.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#10b98180] to-[#10b98130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-city text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Gym Owner <br> <span
+                                        class="text-[12px] text-gray-500">Business - Operations</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Delivery coaching, check-ins and <br>
+                                feedbacks
+                                wherever your clients train.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f59e0b80] to-[#f59e0b30] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-laptop text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Online Coach <br> <span
+                                        class="text-[12px] text-gray-500">Remote Coaching - Engagement</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Connect experties, audiences, <br>
+                                collaborations and future marketplace <br> opportunities.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f9731680] to-[#f9731630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-star text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Creator <br> <span
+                                        class="text-[12px] text-gray-500">Creator - Marketplace</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Coordinate schedules, clients, services
+                                <br>
+                                and staff without fragmented workflows.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#ec489980] to-[#ec489930] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-calendar-minus text-xl"></i></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Studio Manager <br> <span
+                                        class="text-[12px] text-gray-500">Scheduling - Management</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Program training, track performance and
+                                <br>
+                                understand progression over time.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#14b8a680] to-[#14b8a630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-weight-hanging text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Strength Coach <br> <span
+                                        class="text-[12px] text-gray-500">Programming - Performance</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="founder" class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">FOUNDER</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built from experience. <br> Driven by
+                        fitness
+                    </h1>
+                </div>
+
+                <div class="flex justify-center items-center mt-30 gap-10">
+                    <img src="founder-portrait.webp" alt=""
+                        class="h-[716px] w-[494.4px] rounded-xl border border-gray-500 object-cover">
+                    <div class="h-[716px] w-[494.4px] bg-gray-200 border rounded-xl border-[#64748B] px-4 py-5">
+                        <p class="text-[24px] font-semibold text-[#9333EA] ">Everyone has that fitness bug within them
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">The desire to become stronger, healthier and better
+                            <br>
+                            is already there. What often gets in the way is <br> complexity, inconsistency and a
+                            disconnected <br> experience.
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">After more than 15 years in technology and <br>
+                            cybersecurity, with much of my work focused on data <br> security and building systems
+                            people
+                            can trust, I <br> experienced the fitness industry from the other side <br> — as someone
+                            genuinely passionate about fitness.</p>
+                        <p class="text-[20px] text-[#64748B] mt-5">I saw how fragmented the journey can become <br>
+                            across
+                            training, nutrition, progress, health data, <br> coaching and everything surrounding them.
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">FitBug comes from a simple ambition: bring that <br>
+                            journey together and make it easier to keep moving <br> forward.</p>
+                        <p class="text-[20px] text-[#9333EA] mt-5 italic">Janani Kanth <br> <span
+                                class="text-[15px] font-semibold text-[#64748B]">Founder, FitBug</span></p>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-5 mt-5">
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        In LinkedIn</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        X / Twitter</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </p>
+                </div>
+            </section>
+
+            <section id="access" class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="flex flex-col justify-center items-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">EARLY ACCESS</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased text-center">Built the future of <br>
+                        fitness
+                    </h1>
+                    <p class="text-[18px] text-gray-700 mt-20">We’re building FitBug for fitness professionals,
+                        businesses
+                        and anyone <br> who wants a simpler, smarter, more connected fitness experience.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 mr-2">For businesses that need a tailored setup, we’re also
+                        exploring FitBug <br> Cloud, private deployments and white-label options.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 ml-2">Want to use FitBug, partner with us or bring it into
+                        your
+                        business? We’d <br> love to hear from you. If you’re interested in investing, let’s talk too.
+                    </p>
+                    <button
+                        class="cursor-pointer hover:saturate-120 px-10 py-3 mt-10 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                        access <i class="fa-solid fa-arrow-right"></i></button>
+                    <p class="mt-10 text-[10px] text-[#64748B]">Cloud - Private Deployment - white-label possibilities
+                    </p>
+                </div>
+            </section>
+
+            <footer class="h-20 bg-gray-100 border-t border-[#64748B] flex justify-between px-20  items-center">
+                <p class="text-md font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+
+                <p class="text-md font-bold text-gray-700">The fitness bug within - Email</p>
+            </footer>
+        </div>
+
+
+
+        <!-- tablet -->
+        <div class="hidden md:block lg:hidden">
+            <nav
+                class="flex justify-between gap-7  0 items-center px-1 py-3 fixed w-full bg-white z-10 backdrop-blur border-b border-[#64748B]">
+                <div class="flex gap-3 items-center">
+                    <div v-if="firstside" class="">
+                        <i @click="showsidebar()" class="fa-solid fa-bars text-[26px] cursor-pointer "></i>
+                    </div>
+                    <div v-if="secondside" class="">
+                        <i @click="closeSidebar()" class="fa-solid fa-bars text-[26px] cursor-pointer "></i>
+                    </div>
+                    <h1 class="text-[26px] font-[650]">FIT<span class="text-[#9333EA]">BUG</span></h1>
+                </div>
+                <div class="flex  py-3 bg-gray-100 rounded-full ml-5">
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Platform <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Solutions <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Deployment <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        Resources <i class="fa-solid fa-angle-down"></i></p>
+                    <p
+                        class="cursor-pointer  text-[#64748B] font-[550] text-[13px] px-5 py-2 hover:bg-white hover:text-black duration-300 hover:rounded-full">
+                        About</i></p>
+                </div>
+                <button
+                    class="cursor-pointer hover:saturate-120 px-7 py-4 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                    access <i class="fa-solid fa-arrow-up-right-dots"></i></button>
+            </nav>
+
+            <div class="h-20"></div>
+            <!-- Sidebar -->
+            <div>
+                <nav v-if="side"
+                    class="fixed z-999 flex flex-col w-25 px-6 gap-28 items-center py-10 text-center bg-white hidden border-r border-[#64748B]">
+                    <a href="#whyfitbug"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-circle-question text-xl"></i></a>
+                    <a href="#connected"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-users text-2xl"></i></a>
+                    <a href="#whoitsfor"> <i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-person-circle-question text-2xl"></i></a>
+                    <a href="#founder"> <i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-user-large text-2xl"></i></a>
+                    <a href="#access"><i
+                            class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-address-book text-2xl"></i></a>
+                </nav>
+
+            </div>
+
+
+            <!-- Hero -->
+            <section
+                class="h-125 w-full bg-linear-to-t from-white via-gray-100 to-gray-200 flex justify-center items-center">
+                <div class="flex flex-col items-center">
+                    <h1 class="text-[10px] text-[#9333EA] font-[700]">THE CONNECTED FITNESS ECOSYSTEM</h1>
+                    <h1 class="text-[51.16px] font-bold text-center antialiased ">One platform for modern <br> fitness
+                        coaching.
+                    </h1>
+                    <p class="text-[17px] text-[#64748B] font-semibold text-center mt-5"> FITBUG is being built to bring
+                        training, nutrition, client relationships, communication, and <br> progress into a more
+                        connected
+                        coaching experience.</p>
+                    <div class="px-7 rounded-full py-2 bg-gray-200 flex gap-3 items-center mt-7">
+                        <div class=" w-3 h-3 animate-pulse rounded-full bg-[#9333EA]"></div>
+                        <p class="text-[#9333EA] text-[10px] font-[700]"> PLATFORM IN DEVELOPMENT</p>
+                    </div>
+                </div>
+            </section>
+            <section id="whyfitbug" class="w-full h-fit py-60 bg-gray-100/80 ">
+                <div class="flex flex-col justify-center items-center ">
+                    <div>
+                        <h1 class="text-[51.16px] font-bold antialiased "><span
+                                class="text-[10px] text-[#9333EA] font-[700]">WHY
+                                FITBUG</span><br> Fitness is powerul <br> The experience around it isn't</h1>
+                        <p class="text-[17px] text-[#64748B] font-semibold mt-5">Training, nutrition, progress, health
+                            data
+                            and
+                            communication are <br> often spread across disconnected tools and experience</p>
+                    </div>
+                    <div>
+                        <div class="grid grid-rows-2 grid-cols-2  gap-5 mt-10">
+                            <div
+                                class="h-[150.18px] w-[451.6px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Training plans live in separate tools</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One connected coaching experience</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[451.6px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Health & wearable data stay isolated</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Data that works together</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[451.6px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Progress is tracked in different places</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One continous view of progress</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[451.6px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Coaching and opertations happens elsewhere</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Everything connected around the journey</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5 mt-10">
+                        <div
+                            class="h-[141.275px] w-[219.8px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹162<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">India fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+
+                        <div
+                            class="h-[141.275px] w-[219.8px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹377<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2030 forecast</p>
+                        </div>
+
+                        <div
+                            class="h-[141.275px] w-[219.8px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">15<span
+                                    class="text-[0.6em] text-[#9333EA]">%</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected annual growth</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024-2030</p>
+                        </div>
+
+                        <div
+                            class="h-[141.275px] w-[219.8px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">12.3<span
+                                    class="text-[0.6em] text-[#9333EA]">M</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Fitness facility members</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <p class="text-[10px] font-bold text-[#64748B]">India commercial fitness facilities <span
+                                class="underline">Deloitte / HFA, 2025</span></p>
+                    </div>
+                    <div class="mt-50 flex flex-col text-center">
+                        <p class="text-[50px] italic font-medium text-center">"Fitness works better when <span
+                                class="text-[#9333EA]">everthing works <br> together.</span>"</p>
+                        <div>
+                            <p class="text-[16px] font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+                            <p class="text-[16px] font-semibold text-[#64748B]">The fitness bug whithin</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="connected"
+                class="w-full h-fit py-10 bg-linear-to-t from-white via-gray-100 to-gray-200 flex flex-col justify-center items-center">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">CONNECTED</p>
+                    <h1 class="text-[51.16px] font-bold text-center antialiased">Everything fitness, <br> connected.</h1>
+                    <p class="text-[18px] text-[#64748B] font-medium mt-5">Coaching, training, nutrition, progress,
+                        health
+                        data,
+                        <br> business and more - brought together in one connected <br> ecosystem.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="grid grid-rows-5 grid-cols-2 gap-5 mt-20">
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#facc15] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-regular fa-user text-2xl text-[#facc15]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Core</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Coaching & Clients</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Clients profiles, check-ins, feedbacks, plan <br>
+                                assignment and ongoing coach-client <br> management.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#60a5fa] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-dumbbell text-2xl text-[#60a5fa]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Training</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Training & Programming</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Workouts, excercise planning, schedules, <br>
+                                performance
+                                tracking and structured <br> progression.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#4ade80] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-utensils text-2xl text-[#4ade80]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Nutrition</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Nutrition</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Meal plans, calories, macros, food logging <br>
+                                and
+                                nutrition guidance as part of the same <br> journey. </p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#c084fc] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-arrow-up-right-dots text-2xl text-[#c084fc]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Progress</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Progress & Body</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Measurements, photos, body <br> composition,
+                                milestone
+                                and
+                                long-term <br> progress tracking.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#22d3ee] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-heart-pulse text-2xl text-[#22d3ee]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Data</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Health & Connected Data</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Wearable, reminders, notifications, <br> feedbacks
+                                loops
+                                and ongoing client <br> interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#f472b6] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-comments text-2xl text-[#f472b6]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Engagement</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Comminaction & Engagement</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Messaging, reminders, notifications, <br>
+                                feedbacks
+                                loops
+                                and ongoing client <br> interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#34d399] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-city text-2xl text-[#34d399]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Business</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Business & Operations</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Scheduling, subscriptions, staff, coaches, <br>
+                                client
+                                operations and workflows for <br> studios and gyms.</p>
+                        </div>
+
+                        <div
+                            class="h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#818cf8] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-brain text-2xl text-[#818cf8]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Intelligence</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Intelligence & Automation</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Insights, recommendations, intellegent <br>
+                                guidance
+                                and
+                                automation powered by <br> connected data.</p>
+                        </div>
+
+                        <div
+                            class="self-center h-[217.1px] w-[456px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#fb7185] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    </i><i class="fa-solid fa-network-wired text-2xl text-[#fb7185]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Ecosystem</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Marketplace & Ecosytem</h1>
+                            <p class="text-[15px] text-gray-800 mt-5">Discovery, collaborations, affiliates, <br>
+                                partners
+                                and
+                                future marketplace, <br> opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-20 bg-gray-100">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">WHO IT'S FOR</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built for every <br> side of fitness.
+                    </h1>
+                </div>
+
+                <div class="px-5 mt-30 flex justify-center">
+                    <div class="grid grid-cols-2 grid-rows-4 gap-10">
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Keep training, nutrition, progress and <br>
+                                connected health data together.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#06b6d480] to-[#06b6d430] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-heart-pulse text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Enthusiast <br> <span
+                                        class="text-[12px] text-gray-500">Training - Health - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Plan nutrition, follow adherce and <br>
+                                connect
+                                it with the rest of the client <br> journey.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#8b5cf680] to-[#8b5cf630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-utensils text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Nutrition Coach <br> <span
+                                        class="text-[12px] text-gray-500">Nutrition - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Build programs, manage clients and <br>
+                                track
+                                progress from one connected <br> workplace.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#6366f180] to-[#6366f130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-dumbbell text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Personal Trainer <br> <span
+                                        class="text-[12px] text-gray-500">Coach - Training - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Bring coaches, clients and day-to-day <br>
+                                operations into one connected system.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#10b98180] to-[#10b98130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-city text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Gym Owner <br> <span
+                                        class="text-[12px] text-gray-500">Business - Operations</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Delivery coaching, check-ins and <br>
+                                feedbacks
+                                wherever your clients train.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f59e0b80] to-[#f59e0b30] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-laptop text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Online Coach <br> <span
+                                        class="text-[12px] text-gray-500">Remote Coaching - Engagement</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Connect experties, audiences, <br>
+                                collaborations and future marketplace <br> opportunities.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f9731680] to-[#f9731630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-star text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Creator <br> <span
+                                        class="text-[12px] text-gray-500">Creator - Marketplace</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Coordinate schedules, clients, services
+                                <br>
+                                and staff without fragmented workflows.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#ec489980] to-[#ec489930] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-calendar-minus text-xl"></i></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Studio Manager <br> <span
+                                        class="text-[12px] text-gray-500">Scheduling - Management</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Program training, track performance and
+                                <br>
+                                understand progression over time.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#14b8a680] to-[#14b8a630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-weight-hanging text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Strength Coach <br> <span
+                                        class="text-[12px] text-gray-500">Programming - Performance</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">FOUNDER</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built from experience. <br> Driven by
+                        fitness
+                    </h1>
+                </div>
+
+                <div class="flex flex-col justify-center items-center mt-30 gap-10">
+                    <img src="founder-portrait.webp" alt=""
+                        class="h-[358.4px] w-[925.6px] rounded-xl border border-gray-500 object-cover object-top">
+                    <div class="h-[565.6px] w-[927.2px] bg-gray-200 border rounded-xl border-[#64748B] px-4 py-5">
+                        <p class="text-[24px] font-semibold text-[#9333EA] ">Everyone has that fitness bug within them
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">The desire to become stronger, healthier and better
+                            is already there. What often gets in the way is <br> complexity, inconsistency and a
+                            disconnected experience.</p>
+                        <p class="text-[20px] text-[#64748B] mt-5">After more than 15 years in technology and
+                            cybersecurity, with much of my work focused on data <br> security and building systems
+                            people
+                            can trust, I experienced the fitness industry from the other side — as <br> someone
+                            genuinely passionate about fitness.</p>
+                        <p class="text-[20px] text-[#64748B] mt-5">I saw how fragmented the journey can become across
+                            training, nutrition, progress, health data, coaching <br> and everything surrounding them.
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">FitBug comes from a simple ambition: bring that
+                            journey together and make it easier to keep moving <br> forward.</p>
+                        <p class="text-[20px] text-[#9333EA] mt-5 italic">Janani Kanth <br> <span
+                                class="text-[15px] font-semibold text-[#64748B]">Founder, FitBug</span></p>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-5 mt-5">
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        In LinkedIn</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        X / Twitter</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </p>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="flex flex-col justify-center items-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">EARLY ACCESS</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased text-center">Built the future of <br>
+                        fitness
+                    </h1>
+                    <p class="text-[18px] text-gray-700 mt-20">We’re building FitBug for fitness professionals,
+                        businesses
+                        and anyone <br> who wants a simpler, smarter, more connected fitness experience.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 mr-2">For businesses that need a tailored setup, we’re also
+                        exploring FitBug <br> Cloud, private deployments and white-label options.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 ml-2">Want to use FitBug, partner with us or bring it into
+                        your
+                        business? We’d <br> love to hear from you. If you’re interested in investing, let’s talk too.
+                    </p>
+                    <button
+                        class="cursor-pointer hover:saturate-120 px-10 py-3 mt-10 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                        access <i class="fa-solid fa-arrow-right"></i></button>
+                    <p class="mt-10 text-[10px] text-[#64748B]">Cloud - Private Deployment - white-label possibilities
+                    </p>
+                </div>
+            </section>
+
+            <footer class="h-20 bg-gray-100 border-t border-[#64748B] flex justify-between px-20  items-center">
+                <p class="text-md font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+
+                <p class="text-md font-bold text-gray-700">The fitness bug within - Email</p>
+            </footer>
+        </div>
+
+
+        <!-- mobile -->
+        <div class="block md:hidden lg:hidden">
+            <nav
+                class="flex justify-between gap-7  0 items-center px-1 py-3 fixed w-full bg-white z-10 backdrop-blur border-b border-[#64748B]">
+                <div class="flex gap-3 items-center">
+                    <div v-if="firstside" class="">
+                        <i @click="showsidebar()" class="fa-solid fa-bars text-[26px] cursor-pointer "></i>
+                    </div>
+                    <div v-if="secondside" class="">
+                        <i @click="closeSidebar()" class="fa-solid fa-bars text-[26px] cursor-pointer "></i>
+                    </div>
+                    <h1 class="text-[26px] font-[650]">FIT<span class="text-[#9333EA]">BUG</span></h1>
+                </div>
+                <button
+                    class="cursor-pointer hover:saturate-120 px-7 py-4 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                    access <i class="fa-solid fa-arrow-up-right-dots"></i></button>
+            </nav>
+
+            <div class="h-20"></div>
+            <!-- Sidebar -->
+            <div>
+                <nav v-if="sidebar"
+                    class="fixed z-999 flex flex-col w-25 px-6 gap-28 items-center py-10 text-center bg-white hidden border-r border-[#64748B]">
+                    <i class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-circle-question text-xl"></i>
+                    <i class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-users text-2xl"></i>
+                    <i
+                        class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-person-circle-question text-2xl"></i>
+                    <i class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-user-large text-2xl"></i>
+                    <i class="hover:scale-140 duration-300 cursor-pointer fa-solid fa-address-book text-2xl"></i>
+                </nav>
+
+            </div>
+
+
+            <!-- Hero -->
+            <section
+                class="h-125 w-full bg-linear-to-t from-white via-gray-100 to-gray-200 flex justify-center items-center">
+                <div class="flex flex-col items-center">
+                    <h1 class="text-[10px] text-[#9333EA] font-[700]">THE CONNECTED FITNESS ECOSYSTEM</h1>
+                    <h1 class="text-[38.36px] font-bold text-center antialiased ">One platform for modern <br> fitness
+                        coaching.
+                    </h1>
+                    <p class="text-[17px] text-[#64748B] font-semibold text-center mt-5"> FITBUG is being built to bring
+                        training, nutrition, client relationships, communication, and <br> progress into a more
+                        connected
+                        coaching experience.</p>
+                    <div class="px-7 rounded-full py-2 bg-gray-200 flex gap-3 items-center mt-7">
+                        <div class=" w-3 h-3 animate-pulse rounded-full bg-[#9333EA]"></div>
+                        <p class="text-[#9333EA] text-[10px] font-[700]"> PLATFORM IN DEVELOPMENT</p>
+                    </div>
+                </div>
+            </section>
+            <section id="whyfitbug" class="w-full h-fit py-60 bg-gray-100/80 ">
+                <div class="flex flex-col justify-center items-center ">
+                    <div>
+                        <h1 class="text-[68px] font-bold antialiased "><span
+                                class="text-[10px] text-[#9333EA] font-[700]">WHY
+                                FITBUG</span><br> Fitness is powerul <br> The experience around it isn't</h1>
+                        <p class="text-[17px] text-[#64748B] font-semibold mt-5">Training, nutrition, progress, health
+                            data
+                            and
+                            communication are <br> often spread across disconnected tools and experience</p>
+                    </div>
+                    <div>
+                        <div class="grid  grid-cols-1  gap-5 mt-10">
+                            <div
+                                class="h-[150.18px] w-[719.2px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Training plans live in separate tools</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One connected coaching experience</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[719.2px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Health & wearable data stay isolated</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Data that works together</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[719.2px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Progress is tracked in different places</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">One continous view of progress</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-[150.18px] w-[719.2px] rounded-xl bg-gray-200 border border-[#64748B] px-5 py-5 flex flex-col justify-center gap-5">
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-red-500/10 border border-red-500/20 text-red-400 text-md text-center rounded-full">
+                                        x</div>
+                                    <p class="text-lg text-red-400">Coaching and opertations happens elsewhere</p>
+                                </div>
+                                <hr>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="w-7 h-7 bg-green-500/10 border border-green-500/20 text-green-400 text-md text-center rounded-full">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-lg text-green-400">Everything connected around the journey</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 grid-rows-2 gap-5 mt-10">
+                        <div
+                            class="h-[131.038px] w-[351.6px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹162<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">India fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+
+                        <div
+                            class="h-[131.038px] w-[351.6px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">₹377<span
+                                    class="text-[0.6em] text-[#9333EA]">B</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected fitness market</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2030 forecast</p>
+                        </div>
+
+                        <div
+                            class="h-[131.038px] w-[351.6px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">15<span
+                                    class="text-[0.6em] text-[#9333EA]">%</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Projected annual growth</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024-2030</p>
+                        </div>
+
+                        <div
+                            class="h-[131.038px] w-[351.6px] hover:scale-105 duration-500 rounded-xl bg-gray-200 border border-[#64748B] flex flex-col justify-center items-center">
+                            <p class="font-[900] text-[48px] text-[#64748B]">12.3<span
+                                    class="text-[0.6em] text-[#9333EA]">M</span></p>
+                            <p class="text-[14px] font-semibold text-gray-400">Fitness facility members</p>
+                            <p class="text-[13px] text-gray-400 font-medium">2024</p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <p class="text-[10px] font-bold text-[#64748B]">India commercial fitness facilities <span
+                                class="underline">Deloitte / HFA, 2025</span></p>
+                    </div>
+                    <div class="mt-50 flex flex-col text-center">
+                        <p class="text-[50px] italic font-medium text-center">"Fitness works better when <span
+                                class="text-[#9333EA]">everthing works <br> together.</span>"</p>
+                        <div>
+                            <p class="text-[16px] font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+                            <p class="text-[16px] font-semibold text-[#64748B]">The fitness bug whithin</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="connected"
+                class="w-full h-fit py-10 bg-linear-to-t from-white via-gray-100 to-gray-200 flex flex-col justify-center items-center">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">CONNECTED</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Everything fitness, <br> connected.</h1>
+                    <p class="text-[18px] text-[#64748B] font-medium mt-5">Coaching, training, nutrition, progress,
+                        health
+                        data,
+                        <br> business and more - brought together in one connected <br> ecosystem.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="grid  grid-cols-1 gap-5 mt-20">
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#facc15] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-regular fa-user text-2xl text-[#facc15]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Core</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Coaching & Clients</h1>
+                            <p class="text-[15px] text-gray-800 ">Clients profiles, check-ins, feedbacks, plan
+                                assignment and ongoing coach-client management.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#60a5fa] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-dumbbell text-2xl text-[#60a5fa]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Training</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Training & Programming</h1>
+                            <p class="text-[15px] text-gray-800 ">Workouts, excercise planning, schedules,
+                                performance
+                                tracking and structured progression.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#4ade80] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-utensils text-2xl text-[#4ade80]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Nutrition</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Nutrition</h1>
+                            <p class="text-[15px] text-gray-800 ">Meal plans, calories, macros, food logging
+                                and
+                                nutrition guidance as part of the same journey. </p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#c084fc] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-arrow-up-right-dots text-2xl text-[#c084fc]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Progress</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Progress & Body</h1>
+                            <p class="text-[15px] text-gray-800 ">Measurements, photos, body composition,
+                                milestone
+                                and
+                                long-term progress tracking.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#22d3ee] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-heart-pulse text-2xl text-[#22d3ee]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Data</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Health & Connected Data</h1>
+                            <p class="text-[15px] text-gray-800 ">Wearable, reminders, notifications, feedbacks
+                                loops
+                                and ongoing client interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#f472b6] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-comments text-2xl text-[#f472b6]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Engagement</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Comminaction & Engagement</h1>
+                            <p class="text-[15px] text-gray-800 ">Messaging, reminders, notifications,
+                                feedbacks
+                                loops
+                                and ongoing client interactions.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#34d399] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-city text-2xl text-[#34d399]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Business</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Business & Operations</h1>
+                            <p class="text-[15px] text-gray-800 ">Scheduling, subscriptions, staff, coaches,
+                                client
+                                operations and workflows for studios and gyms.</p>
+                        </div>
+
+                        <div
+                            class="h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#818cf8] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    <i class="fa-solid fa-brain text-2xl text-[#818cf8]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Intelligence</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Intelligence & Automation</h1>
+                            <p class="text-[15px] text-gray-800 ">Insights, recommendations, intellegent
+                                guidance
+                                and
+                                automation powered by connected data.</p>
+                        </div>
+
+                        <div
+                            class="self-center h-[146.35px] w-[669.6px] bg-gray-200 shadow-[0_0_2px_black] px-5 py-4 rounded-xl hover:scale-102 hover:bg-[#fb7185] duration-500 space-y-3">
+                            <div class="flex justify-between items-center ">
+                                <div class="p-2 border border-[#64748B] rounded-xl bg-gray-200">
+                                    </i><i class="fa-solid fa-network-wired text-2xl text-[#fb7185]"></i>
+                                </div>
+                                <span
+                                    class="px-3 py-1 bg-[#9333EA] text-white font-semibold  rounded-full  text-[10px]">Ecosystem</span>
+                            </div>
+                            <h1 class="text-[18px] font-semibold text-[#9333EA]">Marketplace & Ecosytem</h1>
+                            <p class="text-[15px] text-gray-800 ">Discovery, collaborations, affiliates,
+                                partners
+                                and
+                                future marketplace, opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-20 bg-gray-100">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">WHO IT'S FOR</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built for every <br> side of fitness.
+                    </h1>
+                </div>
+
+                <div class="px-5 mt-30 flex justify-center">
+                    <div class="grid grid-cols-2 grid-rows-4 gap-10">
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Keep training, nutrition, progress and <br>
+                                connected health data together.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#06b6d480] to-[#06b6d430] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-heart-pulse text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Enthusiast <br> <span
+                                        class="text-[12px] text-gray-500">Training - Health - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Plan nutrition, follow adherce and <br>
+                                connect
+                                it with the rest of the client <br> journey.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#8b5cf680] to-[#8b5cf630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-utensils text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Nutrition Coach <br> <span
+                                        class="text-[12px] text-gray-500">Nutrition - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Build programs, manage clients and <br>
+                                track
+                                progress from one connected <br> workplace.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#6366f180] to-[#6366f130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-dumbbell text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Personal Trainer <br> <span
+                                        class="text-[12px] text-gray-500">Coach - Training - Progress</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Bring coaches, clients and day-to-day <br>
+                                operations into one connected system.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#10b98180] to-[#10b98130] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-city text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Gym Owner <br> <span
+                                        class="text-[12px] text-gray-500">Business - Operations</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Delivery coaching, check-ins and <br>
+                                feedbacks
+                                wherever your clients train.</p>
+                            <div class="flex gap-2 items-center mt-10">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f59e0b80] to-[#f59e0b30] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-laptop text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Online Coach <br> <span
+                                        class="text-[12px] text-gray-500">Remote Coaching - Engagement</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Connect experties, audiences, <br>
+                                collaborations and future marketplace <br> opportunities.</p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#f9731680] to-[#f9731630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-star text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Fitness Creator <br> <span
+                                        class="text-[12px] text-gray-500">Creator - Marketplace</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Coordinate schedules, clients, services
+                                <br>
+                                and staff without fragmented workflows.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#ec489980] to-[#ec489930] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-calendar-minus text-xl"></i></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Studio Manager <br> <span
+                                        class="text-[12px] text-gray-500">Scheduling - Management</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="h-[169.85px] w-[320px] bg-gray-200 shadow-[0_0_2px_black] px-9 py-6 rounded-xl hover:scale-102 duration-500">
+                            <p class="text-[14px] text-gray-700 font-medium">Program training, track performance and
+                                <br>
+                                understand progression over time.
+                            </p>
+                            <div class="flex gap-2 items-center mt-5">
+                                <div
+                                    class="h-[36px] w-[36px] rounded-full bg-linear-to-r from-[#14b8a680] to-[#14b8a630] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-weight-hanging text-xl"></i>
+                                </div>
+                                <p class="text-[14px] text-[#9333EA] font-semibold">Strength Coach <br> <span
+                                        class="text-[12px] text-gray-500">Programming - Performance</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">FOUNDER</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased ">Built from experience. <br> Driven by
+                        fitness
+                    </h1>
+                </div>
+
+                <div class="flex flex-col justify-center items-center mt-30 gap-10">
+                    <img src="founder-portrait.webp" alt=""
+                        class="h-[358.4px] w-[717.6px] rounded-xl border border-gray-500 object-cover object-top">
+                    <div class="h-[647.6px] w-[719.2px] bg-gray-200 border rounded-xl border-[#64748B] px-4 py-5">
+                        <p class="text-[24px] font-semibold text-[#9333EA] ">Everyone has that fitness bug within them
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">The desire to become stronger, healthier and better
+                            is already there. What often gets in the way is <br> complexity, inconsistency and a
+                            disconnected experience.</p>
+                        <p class="text-[20px] text-[#64748B] mt-5">After more than 15 years in technology and
+                            cybersecurity, with much of my work focused on data <br> security and building systems
+                            people
+                            can trust, I experienced the fitness industry from the other side — as <br> someone
+                            genuinely passionate about fitness.</p>
+                        <p class="text-[20px] text-[#64748B] mt-5">I saw how fragmented the journey can become across
+                            training, nutrition, progress, health data, coaching <br> and everything surrounding them.
+                        </p>
+                        <p class="text-[20px] text-[#64748B] mt-5">FitBug comes from a simple ambition: bring that
+                            journey together and make it easier to keep moving <br> forward.</p>
+                        <p class="text-[20px] text-[#9333EA] mt-5 italic">Janani Kanth <br> <span
+                                class="text-[15px] font-semibold text-[#64748B]">Founder, FitBug</span></p>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-5 mt-5">
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        In LinkedIn</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        X / Twitter</p>
+                    <p
+                        class="text-lg px-5 py-2 bg-linear-to-r from-purple-700 to-purple-600 hover:saturate-110 cursor-pointer  w-fit text-white rounded-full">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </p>
+                </div>
+            </section>
+
+            <section class="w-full h-fit py-30 bg-linear-to-t from-gray-300 via-gray-100 to-gray-200">
+                <div class="flex flex-col justify-center items-center">
+                    <p class="text-[10px] text-[#9333EA] font-[700]">EARLY ACCESS</p>
+                    <h1 class="text-[68px] font-bold text-center antialiased text-center">Built the future of <br>
+                        fitness
+                    </h1>
+                    <p class="text-[18px] text-gray-700 mt-20">We’re building FitBug for fitness professionals,
+                        businesses
+                        and anyone <br> who wants a simpler, smarter, more connected fitness experience.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 mr-2">For businesses that need a tailored setup, we’re also
+                        exploring FitBug <br> Cloud, private deployments and white-label options.</p>
+                    <p class="text-[18px] text-gray-700 mt-5 ml-2">Want to use FitBug, partner with us or bring it into
+                        your
+                        business? We’d <br> love to hear from you. If you’re interested in investing, let’s talk too.
+                    </p>
+                    <button
+                        class="cursor-pointer hover:saturate-120 px-10 py-3 mt-10 text-[15px] font-bold text-white bg-linear-to-r from-purple-700 to-purple-600 rounded-full flex items-center gap-5">Early
+                        access <i class="fa-solid fa-arrow-right"></i></button>
+                    <p class="mt-10 text-[10px] text-[#64748B]">Cloud - Private Deployment - white-label possibilities
+                    </p>
+                </div>
+            </section>
+
+            <footer class="h-20 bg-gray-100 border-t border-[#64748B] flex justify-between px-20  items-center">
+                <p class="text-md font-bold">FIT<span class="text-[#9333EA]">BUG</span></p>
+
+                <p class="text-md font-bold text-gray-700">The fitness bug within - Email</p>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    side: false,
+                    firstside: true,
+                    secondside: false,
+                    closeside: false,
+                }
+            },
+            methods: {
+                showsidebar() {
+                    this.side = true;
+                    this.firstside = false;
+                    this.secondside = true;
+                },
+
+                closeSidebar() {
+                    this.side = false;
+                    this.firstside = true;
+                    this.secondside = false;
+                },
+
+
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
